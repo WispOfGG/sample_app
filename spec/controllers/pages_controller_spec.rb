@@ -11,7 +11,11 @@ RSpec.describe PagesController, :type => :controller do
     end
     it "it should return a title" do
       get :home
-      expect(response).to have_selector("title", :content =>"This is the title")
+      expect(:should).to have_selector('title', :exact => 'This is the title')
+  end
+    it "it should have a non-blank body" do
+    get :home
+    response.body.should_not =- <body>\s*<\/body>
   end
 end
   describe "GET contact" do
