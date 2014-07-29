@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe PagesController, :type => :controller do
 
   render_views
+  before(:each) do
+    @base_title = "Ruby on Rails Tutorial Sample App"
+  end
 
   describe "GET home" do
     it "returns http success" do
@@ -11,7 +14,7 @@ RSpec.describe PagesController, :type => :controller do
     end
     it "it should return a title" do
       get :home
-      expect(:should).to have_selector('title', :exact => 'This is the title')
+      expect(:should).to have_selector('title', :exact => '#(@base_title) | Home')
   end
     it "it should have a non-blank body" do
     get :home
